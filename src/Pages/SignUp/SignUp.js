@@ -111,9 +111,9 @@ const SignUp = () => {
                                             <TextInput
                                                 id="photo1"
                                                 placeholder="enter your photo url"
-                                                required
                                                 type="text"
                                                 name="photourl"
+                                                required={false}
                                             />
                                         </div>
                                         <div>
