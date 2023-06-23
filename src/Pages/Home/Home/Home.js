@@ -3,7 +3,7 @@ import Services from '../../Shared/Services/Services';
 import HeaderBanner from '../HeaderBanner/HeaderBanner';
 import About from '../About/About';
 
-const Home = () => {
+const Home = ({datasize}) => {
     return (
         <div>
             <div className='container-fuild'>
@@ -11,7 +11,7 @@ const Home = () => {
             </div>
             <div>
                 <About></About>
-                <Services></Services>
+                <Services datasize={datasize}></Services>
             </div>
         </div>
     );
