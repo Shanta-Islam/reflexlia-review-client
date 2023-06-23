@@ -1,5 +1,6 @@
 import { Button } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -14,7 +15,7 @@ const About = () => {
                 <div class="place-self-center lg:col-span-5">
                     <h2 class="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-3xl dark:text-white">About</h2>
                     <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Time flies, as everyone knows, but the moment can be captured. Because every moment in important. Nicxelia is a photography website. This website will take you back to that beautiful moments.</p>
-                    <Button color='gray'>Get More Info</Button>
+                    <Link to="/about"><Button color='gray'>Get More Info</Button></Link>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { Button } from 'flowbite-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeaderBanner = () => {
     return (
@@ -19,7 +20,7 @@ const HeaderBanner = () => {
                             <p className="mb-4 text-base text-gray-400 md:text-lg">
                             Sharing a moment in the form of a picture makes you feel connected to others.
                             </p>
-                            <Button className='mx-auto' color="gray">Get Started</Button>
+                            <Link to="/services"><Button className='mx-auto' color="gray">Get Started</Button></Link>
                         </div>
                     </div>
                 </div>
