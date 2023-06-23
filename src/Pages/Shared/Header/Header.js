@@ -1,12 +1,11 @@
 import { Button, DarkThemeToggle, Flowbite, Navbar } from 'flowbite-react';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
-
     return (
         <Navbar fluid>
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="/home">
                 <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
                     Reflexlia
                 </span>
@@ -15,12 +14,16 @@ const Header = () => {
                 <Flowbite >
                     <DarkThemeToggle className='border' />
                 </Flowbite>
-                <Button className='me-2 ms-2' color="gray">
-                    Login
-                </Button>
-                <Button color="gray">
-                    Signup
-                </Button>
+                <Link to="/login">
+                    <Button className='me-2 ms-2' color="gray">
+                        Login
+                    </Button>
+                </Link>
+                <Link to="/signup">
+                    <Button color="gray">
+                        Signup
+                    </Button>
+                </Link>
                 <Navbar.Toggle />
             </div>
             <Navbar.Collapse>
