@@ -72,52 +72,50 @@ const Header = () => {
                             </Button.Group>
                         </div>
                     </div>
-                    <div>
-                        <div className='flex'>
-                            <div className='mr-2 ms-2'>
-                                <div className={user?.uid ? 'block' : 'hidden'}>
-                                    <Dropdown
-                                        arrowIcon={false}
-                                        inline={true}
-                                        label={<Avatar alt="User" img={user?.photoURL ? user?.photoURL : 'https://assets-prod.sumo.prod.webservices.mozgcp.net/static/default-FFA-avatar.2f8c2a0592bda1c5.png'} rounded={true} />} >
-                                        <Dropdown.Header>
-                                            <span className="block text-sm">
-                                                {user?.displayName ? user.displayName : 'Unnamed User'}
-                                            </span>
-                                            <span className="block truncate text-sm font-medium">
-                                                {user?.email}
-                                            </span>
-                                        </Dropdown.Header>
-                                        <Link to="/my-reviews">
-                                            <Dropdown.Item>
-                                                My Reviews
-                                            </Dropdown.Item>
-                                        </Link>
-                                        <Link to="/add-services">
-                                            <Dropdown.Item>
-                                                Add Services
-                                            </Dropdown.Item>
-                                        </Link>
-                                        <Dropdown.Divider />
-                                        <Link to="/profile">
-                                            <Dropdown.Item>
-                                                Profile Setting
-                                            </Dropdown.Item>
-                                        </Link>
-                                        <Link to="/resetpassword">
-                                            <Dropdown.Item>
-                                                Reset Password
-                                            </Dropdown.Item>
-                                        </Link>
-                                        <Dropdown.Divider />
+                    <div className='flex'>
+                        <div className='mr-2 ms-2'>
+                            <div className={user?.uid ? 'block' : 'hidden'}>
+                                <Dropdown
+                                    arrowIcon={false}
+                                    inline={true}
+                                    label={<Avatar alt="User" img={user?.photoURL ? user?.photoURL : 'https://i.ibb.co/3hPGXKY/default.png'} rounded={true} />} >
+                                    <Dropdown.Header>
+                                        <span className="block text-sm">
+                                            {user?.displayName ? user.displayName : 'Unnamed User'}
+                                        </span>
+                                        <span className="block truncate text-sm font-medium">
+                                            {user?.email}
+                                        </span>
+                                    </Dropdown.Header>
+                                    <Link to="/my-reviews">
                                         <Dropdown.Item>
-                                            <button onClick={handleLogOut}>Sign Out</button>
+                                            My Reviews
                                         </Dropdown.Item>
-                                    </Dropdown>
-                                </div>
+                                    </Link>
+                                    <Link to="/addservices">
+                                        <Dropdown.Item>
+                                            Add Services
+                                        </Dropdown.Item>
+                                    </Link>
+                                    <Dropdown.Divider />
+                                    <Link to="/profile">
+                                        <Dropdown.Item>
+                                            Profile Setting
+                                        </Dropdown.Item>
+                                    </Link>
+                                    <Link to="/resetpassword">
+                                        <Dropdown.Item>
+                                            Reset Password
+                                        </Dropdown.Item>
+                                    </Link>
+                                    <Dropdown.Divider />
+                                    <Dropdown.Item>
+                                        <button onClick={handleLogOut}>Sign Out</button>
+                                    </Dropdown.Item>
+                                </Dropdown>
                             </div>
-                            <Navbar.Toggle className='border' />
                         </div>
+                        <Navbar.Toggle className='border' />
                     </div>
                 </div>
 

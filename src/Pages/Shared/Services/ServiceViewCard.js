@@ -11,7 +11,7 @@ const ServiceViewCard = ({ service }) => {
                 {service.title}
             </h5>
             <p className='text-gray-900 dark:text-white'>
-                {service.description.slice(0, 100)} ...
+                {service.description.slice(0, 100)}...
             </p>
             <div className="flex items-center justify-between">
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">
