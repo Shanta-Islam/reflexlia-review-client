@@ -5,6 +5,7 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../api/Auth';
 
 
 const SignUp = () => {
@@ -43,7 +44,10 @@ const SignUp = () => {
         }
         else {
             createUser(email, password)
-                .then(() => {
+                .then(result => {
+                    const user = result.user;
+                    console.log(user);
+                    setAuthToken(user);
                     form.reset();
                     handleUpdateUserProfile(name, photoUrl);
                     toast.success('Successfully Sign In');

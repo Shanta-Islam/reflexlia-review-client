@@ -5,6 +5,7 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
+import { setAuthToken } from '../../api/Auth';
 
 
 const Login = () => {
@@ -18,8 +19,11 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
-            .then(() => {
-                // const user = result.user;
+            .then(result => {
+                const user = result.user;
+                //get jwt token
+                setAuthToken(user);
+
                 toast.success('Successfully Sign In')
                 navigate(from, { replace: true });
             })
@@ -28,8 +32,10 @@ const Login = () => {
 
     const handleGithubSignIn = () => {
         providerLogin(githubProvider)
-            .then(() => {
-                // const user = result.user;
+            .then(result => {
+                const user = result.user;
+                //get jwt token
+                setAuthToken(user);
                 toast.success('Successfully Sign In')
                 navigate(from, { replace: true });
             })
@@ -45,25 +51,8 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-
-                const currentUser = {
-                    email: user.email
-                }
-                console.log(currentUser);
-
                 //get jwt token
-                fetch('https://reflexlia-review-server.vercel.app/jwt',{
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                .then(res=> res.json())
-                .then(data=> {
-                    console.log(data);
-                    localStorage.setItem('Token', data.token);
-                })
+                setAuthToken(user);
 
                 form.reset();
                 toast.success('Successfully Sign In')
