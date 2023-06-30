@@ -2,10 +2,12 @@ import { Button, TextInput } from 'flowbite-react';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const ResetPassword = () => {
     const { resetPassword, errorMsgToast } = useContext(AuthContext);
+    useTitle('Reset Password');
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;

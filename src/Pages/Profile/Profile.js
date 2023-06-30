@@ -2,11 +2,13 @@ import { Button, Textarea, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const Profile = () => {
     const { user, updateUserProfile, errorMsgToast, setLoading } = useContext(AuthContext);
     const [image, setImage] = useState(null);
+    useTitle('Profile');
 
     const onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {

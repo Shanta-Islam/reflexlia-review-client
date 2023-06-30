@@ -6,6 +6,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Button, Card, Modal, Spinner, TextInput, Textarea } from 'flowbite-react';
 import ReviewsView from './ReviewsView';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
@@ -13,10 +14,11 @@ const ServiceDetails = () => {
     const [toggleModal, setToggleModal] = useState(false);
     const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
+    useTitle('Service Details');
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/service-reviews?serviceID=${serviceDetails._id}`;
+        const url = `https://reflexlia-review-server.vercel.app/service-reviews?serviceID=${serviceDetails._id}`;
         fetch(url)
             .then((response) => response.json())
             .then((actualData) => {
@@ -61,7 +63,7 @@ const ServiceDetails = () => {
             }
         }
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://reflexlia-review-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -193,7 +195,7 @@ const ServiceDetails = () => {
                                                     className='hidden'
                                                     id="userphoto"
                                                     name="userphoto"
-                                                    value={user?.photoURL ? user?.photoURL : 'https://i.ibb.co/X2xMzwL/defultuser.png'}
+                                                    value={user?.photoURL ? user?.photoURL : 'https://i.ibb.co/3hPGXKY/default.png'}
                                                     hidden
                                                 />
                                             </div>

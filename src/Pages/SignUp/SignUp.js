@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 
 const SignUp = () => {
     const { providerLogin, createUser, updateUserProfile, errorMsgToast, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    useTitle('Signup');
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)

@@ -1,9 +1,11 @@
 import { Button, Textarea, TextInput } from 'flowbite-react';
 import React from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const AddServices = () => { 
 
+    useTitle('Add Services');
     const handleSubmitNewService = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,7 +20,7 @@ const AddServices = () => {
             price: servicePrice,
             description: serviceDescription,
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://reflexlia-review-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

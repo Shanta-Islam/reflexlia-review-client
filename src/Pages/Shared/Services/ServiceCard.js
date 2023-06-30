@@ -7,7 +7,7 @@ const ServiceCard = ({ datasize }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const url = `http://localhost:5000/services${datasize ? `?datasize=${datasize}` : ''}`;
+        const url = `https://reflexlia-review-server.vercel.app/services${datasize ? `?datasize=${datasize}` : ''}`;
         fetch(url)
             .then((response) => response.json())
             .then((actualData) => {

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    useTitle('Login');
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
@@ -41,8 +43,28 @@ const Login = () => {
         const password = form.password.value;
 
         login(email, password)
-            .then(() => {
-                // const user = result.user;
+            .then(result => {
+                const user = result.user;
+
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser);
+
+                //get jwt token
+                fetch('https://reflexlia-review-server.vercel.app/jwt',{
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                .then(res=> res.json())
+                .then(data=> {
+                    console.log(data);
+                    localStorage.setItem('Token', data.token);
+                })
+
                 form.reset();
                 toast.success('Successfully Sign In')
                 navigate(from, { replace: true });

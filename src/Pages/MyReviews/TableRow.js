@@ -29,7 +29,7 @@ const TableRow = ({ review, setLoading }) => {
             review_date: new Date().getTime()
         }
 
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://reflexlia-review-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const TableRow = ({ review, setLoading }) => {
     }
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://reflexlia-review-server.vercel.app/reviews/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

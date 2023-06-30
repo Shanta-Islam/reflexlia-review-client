@@ -40,7 +40,7 @@ const ReviewSlider = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/service-reviews`)
+        fetch(`https://reflexlia-review-server.vercel.app/service-reviews`)
             .then(res => res.json())
             .then(data => setUsersReview(data));
     }, [])
@@ -51,7 +51,7 @@ const ReviewSlider = () => {
             <div className='mt-16'>
                 <Slider {...settings}>
                     {usersReview.map((reviewShow) => (
-                        <Card>
+                        <Card className='h-96'>
                             <div className="flex flex-col items-center pb-10 justify-center">
                                 <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
                                     {reviewShow.review_message}
