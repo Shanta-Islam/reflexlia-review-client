@@ -17,11 +17,10 @@ const MyReview = () => {
                 authorization: `Bearer ${localStorage.getItem('Token')}`
             }
         })
-            
-        .then((response) => {
+            .then((response) => {
                 if (response.status === 401 || response.status === 403) {
                     logOut();
-                    toast.error('Token Invalid! Login Again')
+                    toast.error('Token Invalid! Login Again');
                 }
                 return response.json();
             })

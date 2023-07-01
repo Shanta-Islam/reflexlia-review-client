@@ -15,7 +15,6 @@ import Notfound from "../../Pages/NotFound/NotFound";
 import AddServices from "../../Pages/AddServices/AddServices";
 
 
-
 const router = createBrowserRouter([
     {
       path: '/',
@@ -46,7 +45,7 @@ const router = createBrowserRouter([
           element: <SignUp></SignUp>
         },
         {
-          path: '/services',
+          path: '/services', 
           element: <ServicesPage></ServicesPage>
         },
         {

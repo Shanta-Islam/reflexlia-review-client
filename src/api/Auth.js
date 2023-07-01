@@ -1,6 +1,6 @@
 export const setAuthToken = (user) =>{
     const currentUser = {
-        email: user.email
+        uid: user.uid
     }
     console.log(currentUser);
 
