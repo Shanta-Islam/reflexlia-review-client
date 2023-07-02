@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBNwl2l9Jot6LK6mBMhgr11uwF6DPndw30",
-  authDomain: "reflexlia-review.firebaseapp.com",
-  projectId: "reflexlia-review",     
-  storageBucket: "reflexlia-review.appspot.com",
-  messagingSenderId: "546926514590",
-  appId: "1:546926514590:web:80d7b3dc6c6a147b66068f"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
