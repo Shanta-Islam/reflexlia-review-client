@@ -14,7 +14,6 @@ const About = () => {
                     <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Time flies, as everyone knows, but the moment can be captured. Because every moment in important. Nicxelia is a photography website. This website will take you back to that beautiful moments.</p>
                 </div>
             </div>
-
         </div>
     );
 };
